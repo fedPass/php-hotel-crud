@@ -1,7 +1,4 @@
-<?php
-//agg parte dell'head
-include 'layout/header.php';
- ?>
+<?php include 'layout/header.php'; ?>
 <main>
     <div class="container">
         <div class="row">
@@ -14,23 +11,24 @@ include 'layout/header.php';
         </div>
         <div class="row">
             <div class="col-6">
-                <form>
+                <!-- form per inviare i dati alla pagina insert.php -->
+                <form method="post" action="insert.php">
                   <div class="form-group row">
                     <label for="numero_stanza" class="col-3 col-form-label">Numero stanza</label>
                     <div class="col-9">
-                      <input type="text" class="form-control" id="numero_stanza" placeholder="Numero stanza" required>
+                      <input name="numero_stanza" type="text" class="form-control" id="numero_stanza" placeholder="Numero stanza" required>
                     </div>
                   </div>
                   <div class="form-group row">
                     <label for="piano" class="col-3 col-form-label">Piano</label>
                     <div class="col-9">
-                      <input type="text" class="form-control" id="piano" placeholder="Piano" required>
+                      <input name="piano" type="text" class="form-control" id="piano" placeholder="Piano" required>
                     </div>
                   </div>
                   <div class="form-group row">
                     <label for="letti" class="col-3 col-form-label">Numero letti</label>
                     <div class="col-9">
-                      <input type="text" class="form-control" id="letti" placeholder="Numero letti" required>
+                      <input name="letti" type="text" class="form-control" id="letti" placeholder="Numero letti" required>
                     </div>
                   </div>
                   <div class="form-group row">
