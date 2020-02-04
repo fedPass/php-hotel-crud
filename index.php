@@ -31,22 +31,39 @@ if ($conn && $conn->connect_error) {
         <div class="container">
             <div class="row justify-content-md-center">
                 <div class="col-6">
-                    <h1>Le stanze dell'hotel</h1>
+                    <h1 class="text-center mt-3 mb-3">Stanze Hotel</h1>
                 </div>
                 <div class="col-12">
-                    <?php
-                    if ($result && $result->num_rows > 0) {
-                        // output data of each row
-                        while($row = $result->fetch_assoc()) {
-                            echo "Stanza N. " . $row['room_number']. " piano: " . $row['floor'];
-                            echo '<br>';
-                        }
-                    } elseif ($result) {
-                        echo "0 results";
-                    } else {
-                        echo "query error";
-                    }
-                     ?>
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th scope="col">Numero stanza</th>
+                          <th scope="col">Piano</th>
+                          <th scope="col">Letti</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                          <?php
+                          if ($result && $result->num_rows > 0) {
+                              while($row = $result->fetch_assoc()) { ?>
+                        <tr>
+                          <td><?php echo $row['room_number']; ?></td>
+                          <td><?php echo $row['floor']; ?></td>
+                          <td><?php echo $row['beds']; ?></td>
+                        </tr>
+                        <?php
+                            }
+                        } elseif ($result) { ?>
+                        <tr>
+                            <td colspan="3">Non ci sono risultati</td>
+                        </tr>
+                        <?php } else { ?>
+                            <tr colspan="3">
+                                <td>Si è verificato un errore</td>
+                            </tr>
+                  <?php } ?>
+                      </tbody>
+                    </table>
                 </div>
             </div>
         </div>
