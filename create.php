@@ -12,12 +12,14 @@
         <?php if (!empty($_GET['success'])) {?>
             <div class="row">
                 <div class="col-6 offset-3">
-                <?php if($_GET['success']== 'true') {?>
-                <div class="alert alert-success" role="alert">Inserita nuova stanza con successo</div>
+                    <?php if($_GET['success']== 'true') {?>
+                    <div class="alert alert-success" role="alert">Inserita nuova stanza con successo</div>
+                </div>
                 <?php } else { ?>
                 <div class="alert alert-danger" role="alert">Si è verificato un errore :(</div>
-        <?php }
-        } ?>
+        <?php } ?>
+            </div>
+        <?php } ?>
         <div class="row">
             <div class="col-6">
                 <!-- form per inviare i dati alla pagina insert.php -->
@@ -48,6 +50,5 @@
                 </form>
             </div>
         </div>
-    </div>
 </main>
 <?php include 'layout/footer.php'; ?>
