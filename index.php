@@ -33,38 +33,47 @@ if ($conn && $conn->connect_error) {
                 <div class="col-6">
                     <h1 class="text-center mt-3 mb-3">Stanze Hotel</h1>
                 </div>
+            </div>
+            <div class="row">
                 <div class="col-12">
-                    <table class="table">
-                      <thead>
-                        <tr>
-                          <th scope="col">Numero stanza</th>
-                          <th scope="col">Piano</th>
-                          <th scope="col">Letti</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                          <?php
-                          if ($result && $result->num_rows > 0) {
-                              while($row = $result->fetch_assoc()) { ?>
-                        <tr>
-                          <td><?php echo $row['room_number']; ?></td>
-                          <td><?php echo $row['floor']; ?></td>
-                          <td><?php echo $row['beds']; ?></td>
-
-                        </tr>
-                        <?php
-                            }
-                        } elseif ($result) { ?>
-                        <tr>
-                            <td colspan="3">Non ci sono risultati</td>
-                        </tr>
-                        <?php } else { ?>
-                            <tr colspan="3">
-                                <td>Si è verificato un errore</td>
+                    <div class="table-responsive">
+                        <table class="table">
+                          <thead>
+                            <tr>
+                              <th scope="col">Numero stanza</th>
+                              <th scope="col">Piano</th>
+                              <th scope="col">Letti</th>
+                              <th scope="col" ></th>
                             </tr>
-                  <?php } ?>
-                      </tbody>
-                    </table>
+                          </thead>
+                          <tbody>
+                                <?php
+                                  if ($result && $result->num_rows > 0) {
+                                      while($row = $result->fetch_assoc()) { ?>
+                                <tr>
+                                  <td><?php echo $row['room_number']; ?></td>
+                                  <td><?php echo $row['floor']; ?></td>
+                                  <td><?php echo $row['beds']; ?></td>
+                                  <td class="text-right">
+                                      <a class="btn btn-info" href="#">Dettagli</a>
+                                      <a class="btn btn-warning" href="#">Modifica</a>
+                                      <a class="btn btn-danger" href="#">Elimina</a>
+                                  </td>
+                                </tr>
+                                <?php
+                                    }
+                                } elseif ($result) { ?>
+                                <tr>
+                                    <td colspan="4">Non ci sono risultati</td>
+                                </tr>
+                                <?php } else { ?>
+                                    <tr colspan="4">
+                                        <td>Si è verificato un errore</td>
+                                    </tr>
+                                <?php } ?>
+                          </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
