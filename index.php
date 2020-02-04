@@ -1,3 +1,18 @@
+<?php
+//includi il file con le variabili
+include 'config-db.php';
+// Connect
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn && $conn->connect_error) {
+    echo ("Connection failed: " . $conn->connect_error);
+} else {
+    $sql = "SELECT room_number, floor FROM stanze";
+    $result = $conn->query($sql);
+    $conn->close();
+}
+
+ ?>
 <!doctype html>
 <html lang="it">
   <head>
@@ -12,9 +27,31 @@
     <title>CRUD Hotel</title>
   </head>
   <body>
-    <?php include 'functions.php';
-        connect_db();
-     ?>
+    <main>
+        <div class="container">
+            <div class="row justify-content-md-center">
+                <div class="col-6">
+                    <h1>Le stanze dell'hotel</h1>
+                </div>
+                <div class="col-12">
+                    <?php
+                    if ($result && $result->num_rows > 0) {
+                        // output data of each row
+                        while($row = $result->fetch_assoc()) {
+                            echo "Stanza N. " . $row['room_number']. " piano: " . $row['floor'];
+                            echo '<br>';
+                        }
+                    } elseif ($result) {
+                        echo "0 results";
+                    } else {
+                        echo "query error";
+                    }
+                     ?>
+                </div>
+            </div>
+        </div>
+
+    </main>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
