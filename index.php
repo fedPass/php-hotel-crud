@@ -1,16 +1,10 @@
 <?php
-//includi il file con le variabili
-include 'config-db.php';
-// Connect
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn && $conn->connect_error) {
-    echo ("Connection failed: " . $conn->connect_error);
-} else {
-    $sql = "SELECT id, room_number, floor, beds FROM stanze";
-    $result = $conn->query($sql);
-    $conn->close();
-}
+//includi il file con le funzioni
+include 'functions.php';
+// dichiaro la query
+$sql = "SELECT id, room_number, floor, beds FROM stanze";
+//recupero i dettagli stanze
+$result = esegui_query($sql);
 //includi la parte con apertura html, head, apertura body
 include 'layout/header.php';
  ?>

@@ -1,21 +1,13 @@
 <?php
 //connessione db
-    //includi il file con le variabili
-    include 'config-db.php';
-    // Connect
-    $conn = new mysqli($servername, $username, $password, $dbname);
-    // Check connection
-    if ($conn && $conn->connect_error) {
-        echo ("Connection failed: " . $conn->connect_error);
-    } else {
-        $sql = "SELECT * FROM stanze WHERE id = ". $_GET['id'];
-        $result = $conn->query($sql);
-        $conn->close();
-        //recupero dettagli della stanza
-        //visualizzo i dettagli
-    }
-//includi la parte con apertura html, head, apertura body
-include 'layout/header.php';
+    //includi il file le funzioni
+    include 'functions.php';
+    // dichiaro la query
+    $sql = "SELECT * FROM stanze WHERE id = ". $_GET['id'];
+    //recupero dettagli della stanza
+    $result = esegui_query($sql);
+    //includi la parte con apertura html, head, apertura body
+    include 'layout/header.php';
  ?>
 <main>
     <div class="container">
@@ -31,6 +23,7 @@ include 'layout/header.php';
             <div class="col-12">
                 <?php
                   if ($result && $result->num_rows > 0) {
+                      //visualizzo i dettagli
                       while($row = $result->fetch_assoc()) { ?>
                           <div id="info-box" class="card text-white bg-info mb-3">
                             <div class="card-header">Stanza: <?php echo $row['id']; ?></div>

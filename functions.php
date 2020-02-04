@@ -7,7 +7,7 @@
         return $conn;
     }
 
-    function esegui_query() {
+    function esegui_query($query) {
         //richiamo con la funzione la creazione della connessione direttamente con la query
         $conn = connect_db();
         // Check connection
