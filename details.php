@@ -1,0 +1,1 @@
+visualizzo dettagli stanza selezionata

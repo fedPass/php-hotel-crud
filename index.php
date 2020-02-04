@@ -29,9 +29,12 @@ if ($conn && $conn->connect_error) {
   <body>
     <main>
         <div class="container">
-            <div class="row justify-content-md-center">
+            <div class="row">
                 <div class="col-6">
-                    <h1 class="text-center mt-3 mb-3">Stanze Hotel</h1>
+                    <h1 class="mt-3 mb-3">Stanze Hotel</h1>
+                </div>
+                <div class="col-6 text-right ">
+                    <a class="btn btn-info mt-3 mb-3" href="create.php">Crea nuova</a>
                 </div>
             </div>
             <div class="row">
@@ -55,9 +58,9 @@ if ($conn && $conn->connect_error) {
                                   <td><?php echo $row['floor']; ?></td>
                                   <td><?php echo $row['beds']; ?></td>
                                   <td class="text-right">
-                                      <a class="btn btn-info" href="#">Dettagli</a>
-                                      <a class="btn btn-warning" href="#">Modifica</a>
-                                      <a class="btn btn-danger" href="#">Elimina</a>
+                                      <a class="btn btn-info" href="details.php">Dettagli</a>
+                                      <a class="btn btn-warning" href="edit.php">Modifica</a>
+                                      <a class="btn btn-danger" href="delete.php">Elimina</a>
                                   </td>
                                 </tr>
                                 <?php
