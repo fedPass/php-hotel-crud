@@ -9,6 +9,15 @@
                 <a class="btn btn-info mt-3 mb-3" href="index.php">Torna alla home</a>
             </div>
         </div>
+        <?php if (!empty($_GET['success'])) {?>
+            <div class="row">
+                <div class="col-6 offset-3">
+                <?php if($_GET['success']== 'true') {?>
+                <div class="alert alert-success" role="alert">Inserita nuova stanza con successo</div>
+                <?php } else { ?>
+                <div class="alert alert-danger" role="alert">Si è verificato un errore :(</div>
+        <?php }
+        } ?>
         <div class="row">
             <div class="col-6">
                 <!-- form per inviare i dati alla pagina insert.php -->
