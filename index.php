@@ -40,8 +40,8 @@ include 'layout/header.php';
                                   <td><?php echo $row['beds']; ?></td>
                                   <td class="text-right">
                                       <a class="btn btn-info" href="details.php?id=<?php echo $row['id'];?>">Dettagli</a>
-                                      <a class="btn btn-warning" href="edit.php?id=<?php echo $row['id'];?>">Modifica</a>
-                                      <a class="btn btn-danger" href="delete.php?id=<?php echo $row['id'];?>">Elimina</a>
+                                      <a class="btn btn-outline-info" href="edit.php?id=<?php echo $row['id'];?>">Modifica</a>
+                                      <a class="btn btn-outline-danger" href="delete.php?id=<?php echo $row['id'];?>">Elimina</a>
                                   </td>
                                 </tr>
                                 <?php
